@@ -16,13 +16,6 @@ grid_h = h/grid_n
 
 field = np.zeros((grid_n,grid_n))
 
-for y in range(grid_n):
-    for x in range(grid_n):
-        #if 33<=y and y<=42 and 33<=x and x<=42:
-        #if 17<=y and y<=21 and 17<=x and x<=21:
-        if 65<=y and y<=84 and 65<=x and x<=84:
-            field[y,x] = dot_value
-
 pygame.init()
 screen = pygame.display.set_mode(SCREEN_SIZE)
 pygame.display.set_caption(u"図形の描画")
@@ -34,11 +27,12 @@ while True:
     # 図形を描画
     for i in range(grid_n):
         for j in range(grid_n):
-            # 黄の矩形
             if field[i,j] == dot_value:
+                # 赤
                 pygame.draw.rect(screen, (255,0,0),
                 Rect(grid_w*i,grid_h*j,grid_w*i+grid_w,grid_h*j+grid_h))
             else:
+                # 黄
                 pygame.draw.rect(screen, (255,255,0),
                 Rect(grid_w*i,grid_h*j,grid_w*i+grid_w,grid_h*j+grid_h))
 
